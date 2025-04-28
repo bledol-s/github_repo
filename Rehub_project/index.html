@@ -1,22 +1,216 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <script src="" async defer></script>
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReHub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Alpine.js for interactivity -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="bg-blue-800 text-white p-4" x-data="{ menuOpen: false }">
+  <div class="container mx-auto flex justify-between items-center">
+    <!-- Hamburger Menu (Mobile) -->
+    <button 
+      class="lg:hidden text-white focus:outline-none" 
+      @click="menuOpen = !menuOpen">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+
+    <!-- ReHub Title -->
+    <a href="#" class="font-bold text-xl absolute left-1/2 transform -translate-x-1/2 lg:static lg:transform-none">
+      ReHub
+    </a>
+
+    <!-- Subscribe Button -->
+    <a href="#newsletter" class="hidden lg:inline-block bg-yellow-500 text-black px-4 py-2 rounded-lg font-bold hover:bg-yellow-600">
+      Subscribe to Newsletter
+    </a>
+  </div>
+
+  <!-- Menu (Desktop & Mobile) -->
+  <div 
+    class="lg:flex lg:justify-center lg:space-x-4 mt-4 lg:mt-0" 
+    :class="{ 'hidden': !menuOpen && window.innerWidth < 1024 }">
+    <a href="#" class="block lg:inline-block hover:underline">Deals</a>
+    <a href="#" class="block lg:inline-block hover:underline">Dashboard</a>
+    <a href="#" class="block lg:inline-block hover:underline">About ReHub</a>
+    <a href="#" class="block lg:inline-block hover:underline">FAQ</a>
+    <a href="#" class="block lg:inline-block hover:underline">Contact Us</a>
+  </div>
+</nav>
+
+  <!-- Hero + Search -->
+  <section class="bg-blue-600 text-white py-20">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl font-bold mb-4">Welcome to Rehub</h1>
+      <p>"Abuja’s Real Estate Hub – Find, Buy, Rent, or Invest in Minutes.
+        From luxury villas to auction deals, every property journey starts here."</p>
+        <div class="mt-8">
+    </div>
+  </section>
+
+  <!-- Search Filter -->
+   <section class="bg-white py-6"> 
+    <div class="container mx-auto mt-6">
+        <form action="#" method="GET" class="flex justify-center">
+        <input type="text" name="search" placeholder="Search for properties..." class="w-full max-w-md p-3 rounded-l-lg border border-gray-300">
+        <button type="submit" class="bg-yellow-500 text-black px-4 py-3 rounded-r-lg font-bold">Filter</button>
+        </form>
+    </div>
+  </section>
+
+  <!-- DEAL SECTIONS WITH LISTING CARDS -->
+  <main class="max-w-7xl mx-auto mt-10 p-4">
+    <!-- GENERAL LISTINGS -->
+    <section id="general" class="mb-12 autoslide-section">
+      <h3 class="text-xl font-semibold text-gray-800 mb-4">General Listings</h3>
+      <div class="flex space-x-4 overflow-x-auto pb-4 autoslide">
+        <!-- Card Template -->
+        <div class="min-w-[250px] bg-white shadow rounded p-3 flex-shrink-0">
+          <div class="bg-gray-300 h-32 mb-2"></div>
+          <h4 class="font-semibold text-gray-800">3 Bedroom Flat</h4>
+          <p class="text-sm text-gray-600">Gwarinpa, Abuja</p>
+          <p class="text-sm text-gray-700 mb-1">A well-built 3 bedroom apartment close to the main road.</p>
+          <p class="text-blue-700 font-bold">₦45,000,000</p>
+          <button class="mt-2 text-sm text-white bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded">Contact Agent</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOT DEALS -->
+    <section id="hot" class="mb-12 autoslide-section">
+      <h3 class="text-xl font-semibold text-gray-800 mb-4">Hot Deals</h3>
+      <div class="flex space-x-4 overflow-x-auto pb-4 autoslide">
+        <div class="min-w-[250px] bg-white shadow rounded p-3 flex-shrink-0">
+          <div class="bg-gray-300 h-32 mb-2"></div>
+          <h4 class="font-semibold text-gray-800">Luxury Duplex</h4>
+          <p class="text-sm text-gray-600">Asokoro, Abuja</p>
+          <p class="text-sm text-gray-700 mb-1">Spacious duplex with modern finishes and large compound.</p>
+          <p class="text-blue-700 font-bold">₦120,000,000</p>
+          <button class="mt-2 text-sm text-white bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded">Contact Agent</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECIAL DEALS -->
+    <section id="special" class="mb-12 autoslide-section">
+      <h3 class="text-xl font-semibold text-gray-800 mb-4">Special Deals</h3>
+      <div class="flex space-x-4 overflow-x-auto pb-4 autoslide">
+        <div class="min-w-[250px] bg-white shadow rounded p-3 flex-shrink-0">
+          <div class="bg-gray-300 h-32 mb-2"></div>
+          <h4 class="font-semibold text-gray-800">Fully Furnished Bungalow</h4>
+          <p class="text-sm text-gray-600">Lokogoma, Abuja</p>
+          <p class="text-sm text-gray-700 mb-1">Move-in ready with modern furniture and fittings.</p>
+          <p class="text-blue-700 font-bold">₦85,000,000</p>
+          <button class="mt-2 text-sm text-white bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded">Contact Agent</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUCTION DEALS -->
+    <section id="auction" class="mb-12 autoslide-section">
+      <h3 class="text-xl font-semibold text-gray-800 mb-4">Auction Deals</h3>
+      <div class="flex space-x-4 overflow-x-auto pb-4 autoslide">
+        <div class="min-w-[250px] bg-white shadow rounded p-3 flex-shrink-0">
+          <div class="bg-gray-300 h-32 mb-2"></div>
+          <h4 class="font-semibold text-gray-800">Distressed Sale Apartment</h4>
+          <p class="text-sm text-gray-600">Maitama, Abuja</p>
+          <p class="text-sm text-gray-700 mb-1">Urgent sale below market value, excellent investment opportunity.</p>
+          <p class="text-blue-700 font-bold">₦30,000,000</p>
+          <button class="mt-2 text-sm text-white bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded">Contact Agent</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- About -->
+  <section class="bg-gray-100 py-12">
+    <div class="container mx-auto text-center">
+    <h2 class="text-2xl font-bold mb-6">About Us</h2>
+    <p class="mb-4">"ReHub is Abuja’s premier digital hub for all things real estate—where buyers, renters, investors, agents, and developers connect seamlessly. Whether you’re searching for a dream home, leasing a luxury apartment, bidding on auction deals, or listing properties with flexible payment plans, ReHub brings every opportunity under one roof. Think of us as the bustling marketplace where Nigeria’s property journey begins."</p>
+    <p>"Where Properties Meet People—Effortlessly."</p>
+    </div>
+</section>
+    
+
+<!-- Testimonials -->
+    <section class="bg-gray-100 py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-6">What Our Clients Say</h2>
+            <div class="flex space-x-4 overflow-x-auto pb-4">
+            <div class="min-w-[250px] bg-white shadow rounded p-3 flex-shrink-0">
+                <p class="text-gray-700 mb-2">"ReHub made my home buying experience seamless and enjoyable!"</p>
+                <p class="text-sm text-gray-600">- John Doe</p>
+            </div>
+            <div class="min-w-[250px] bg-white shadow rounded p-3 flex-shrink-0">
+                <p class="text-gray-700 mb-2">"I found the perfect apartment in no time, thanks to ReHub!"</p>
+                <p class="text-sm text-gray-600">- Jane Smith</p>
+            </div>
+            <div class="min-w-[250px] bg-white shadow rounded p-3 flex-shrink-0">
+                <p class="text-gray-700 mb-2">"The agents were very helpful and knowledgeable!"</p>
+                <p class="text-sm text-gray-600">- Sarah Johnson</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-blue-600 text-white py-12">
+        <div class="container mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-6">Subscribe to Our Newsletter</h2>
+        <p class="mb-4">Get the latest listings and real estate news directly in your inbox.</p>
+        <form action="#" method="POST" class="max-w-md mx-auto">
+            <input type="email" name="email" placeholder="Your Email" class="w-full p-3 rounded-lg text-gray-800">
+            <button type="submit" class="mt-3 bg-yellow-500 text-black px-6 py-2 rounded-lg font-bold">Subscribe</button>
+        </form>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-gray-100 py-12">
+        <div class="container mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+        <div class="max-w-md mx-auto">
+            <details class="mb-4">
+                <summary class="font-semibold text-gray-800 cursor-pointer">How do I list my property?</summary>
+                <p class="text-gray-600 mt-2">You can list your property by filling out our online form or contacting our agents.</p>
+            </details>
+            <details class="mb-4">
+                <summary class="font-semibold text-gray-800 cursor-pointer">What are the fees involved?</summary>
+                <p class="text-gray-600 mt-2">We charge a small commission on successful sales. Please contact us for more details.</p>
+            </details>
+        </div>
+        </div>
+    </section>
+
+  <!-- contact -->
+    <section class="bg-gray-100 py-12">
+        <div class="container mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-6">Contact ReHub</h2>
+        <p class="mb-4">Have questions? We're here to help!</p>
+        <form action="#" method="POST" class="max-w-md mx-auto">
+            <input type="text" name="name" placeholder="Your Name" class="w-full p-3 mb-4 rounded-lg text-gray-800">
+            <input type="email" name="email" placeholder="Your Email" class="w-full p-3 mb-4 rounded-lg text-gray-800">
+            <textarea name="message" rows="4" placeholder="Your Message" class="w-full p-3 mb-4 rounded-lg text-gray-800"></textarea>
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold">Send Message</button>
+        </form>
+        </div>
+    </section>
+
+  <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center">
+        <p>&copy; 2025 ReHub. All rights reserved.</p>
+        <div class="flex justify-center space-x-4 mt-4">
+            <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+            <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+        </div>
+        </div>
+
+</body>
 </html>
