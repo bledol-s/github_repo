@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReHub - Subscription Plans</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a6bff;
+            --hot: #ff6b4a;
+            --special: #9c4aff;
+            --auction: #ffd24a;
+            --general: #4aff9c;
+        }
+
+        .pricing-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-header {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .general .card-header { background: var(--general); }
+        .hot .card-header { background: var(--hot); }
+        .special .card-header { background: var(--special); }
+        .auction .card-header { background: var(--auction); }
+
+        .card-body {
+            padding: 20px;
+            background: white;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .features li:before {
+            content: "✓";
+            color: var(--primary);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .promo-banner {
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .promo-code {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .primary-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .secondary-btn {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-white shadow p-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-blue-700">ReHub</h1>
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="text-gray-700 hover:text-blue-700">Home</a></li>
+                <li><a href="dashboard.html" class="text-gray-700 hover:text-blue-700">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto mt-10 p-4">
+        <h1 class="text-3xl font-bold text-center text-blue-700 mb-8">Choose Your Listing Plan</h1>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- General Listing -->
+            <div class="pricing-card general">
+                <div class="card-header">
+                    <h2>General Listing</h2>
+                    <p>For everyone</p>
+                </div>
+                <div class="card-body">
+                    <div class="price">Free*</div>
+                    <ul class="features">
+                        <li>7 days visibility</li>
+                        <li>Basic property details</li>
+                        <li>No approval needed</li>
+                        <li>No email marketing</li>
+                    </ul>
+                    
+                    <div class="promo-banner">
+                        <p>*₦1,000 flat fee after promotion</p>
+                    </div>
+                    
+                    <a href="#" class="btn primary-btn">Post Now</a>
+                </div>
+            </div>
+            
+            <!-- Hot Deals -->
+            <div class="pricing-card hot">
+                <div class="card-header">
+                    <h2>Hot Deals</h2>
+                    <p>For agents & marketers</p>
+                </div>
+                <div class="card-body">
+                    <div class="price">₦3,000 + 0.5%</div>
+                    <ul class="features">
+                        <li>14 days visibility</li>
+                        <li>Priority placement</li>
+                        <li>Verified badge</li>
+                        <li>Email marketing</li>
+                    </ul>
+                    
+                    <div class="promo-banner">
+                        <p>Use code <span class="promo-code">HOTFREE</span> to post free</p>
+                        <small>Expires in 7 days</small>
+                    </div>
+                    
+                    <a href="#" class="btn primary-btn">Post Hot Deal</a>
+                </div>
+            </div>
+            
+            <!-- Special Deals -->
+            <div class="pricing-card special">
+                <div class="card-header">
+                    <h2>Special Deals</h2>
+                    <p>For developers & companies</p>
+                </div>
+                <div class="card-body">
+                    <div class="price">₦10,000 + 1%</div>
+                    <ul class="features">
+                        <li>30 days visibility</li>
+                        <li>Homepage spotlight</li>
+                        <li>Payment plans</li>
+                        <li>Email marketing</li>
+                    </ul>
+                    
+                    <div class="promo-banner">
+                        <p>Use code <span class="promo-code">DEVFREE</span> to post free</p>
+                        <small>Expires in 14 days</small>
+                    </div>
+                    
+                    <a href="#" class="btn primary-btn">Post Special Deal</a>
+                </div>
+            </div>
+            
+            <!-- Auction Deals -->
+            <div class="pricing-card auction">
+                <div class="card-header">
+                    <h2>Auction Deals</h2>
+                    <p>ReHub managed</p>
+                </div>
+                <div class="card-body">
+                    <div class="price">₦20,000*</div>
+                    <ul class="features">
+                        <li>7-14 day bidding</li>
+                        <li>Dedicated auction page</li>
+                        <li>Targeted buyer alerts</li>
+                        <li>Premium marketing</li>
+                    </ul>
+                    
+                    <div class="promo-banner">
+                        <p>Use code <span class="promo-code">BIDFREE</span> to list free</p>
+                        <small>Expires in 30 days</small>
+                    </div>
+                    
+                    <a href="#" class="btn primary-btn">Start Auction</a>
+                    <a href="#" class="btn secondary-btn">Contact for Fees</a>
+                    
+                    <p style="font-size: 0.8rem; margin-top: 10px;">*Refundable if no bids meet reserve</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 ReHub. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
