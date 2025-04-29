@@ -23,26 +23,127 @@
     <main class="max-w-4xl mx-auto mt-10 p-4 mb-10 bg-white rounded shadow-md">
         <!-- Profile Header -->
         <section class="text-center">
-            <img src="profile-picture.jpg" alt="Agent Profile Picture" class="w-32 h-32 rounded-full mx-auto mb-4">
+            <div class="w-32 h-32 rounded-full mx-auto mb-4 bg-gray-300 flex items-center justify-center">
+                <img src="profile-picture.jpg" alt="Agent Profile Picture" class="w-full h-full rounded-full hidden">
+            </div>
             <h1 class="text-2xl font-bold text-gray-800">John Doe</h1>
-            <p class="text-gray-600">Agent | Professional License: #12345</p>
+            <p class="text-blue-700 font-semibold text-lg mt-1">Agent | Professional License: #12345</p>
             <div class="flex justify-center items-center space-x-2 mt-2">
-                <span class="bg-green-500 text-white text-sm px-2 py-1 rounded">Approved</span>
-                <span class="text-yellow-500 text-sm">⭐⭐⭐⭐☆ (4.5/5)</span>
+                <span class="bg-green-500 text-white text-sm px-2 py-1 rounded-full shadow-md">✔ Approved</span>
+                <span class="text-yellow-500 text-sm flex items-center">
+                    <span class="text-lg font-bold mr-1">4.5</span> ⭐⭐⭐⭐☆
+                </span>
+            </div>
+            <div class="mt-4">
+                <a href="create_edit_profile.html">
+                    <button class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">Edit Profile</button>
+                </a>
+                <button class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800">Share Profile</button>
+            </div>
+            <div class="mt-4">
+                <a href="https://example.com" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Visit Website/Blog</a>
             </div>
         </section>
 
-        <!-- About Agent -->
+        <!-- License Picture -->
+        <section class="mt-6 text-center">
+            <h2 class="text-lg font-bold text-gray-800">License</h2>
+            <div class="w-64 h-40 bg-gray-300 mx-auto mt-4 rounded shadow-md flex items-center justify-center">
+                <img src="license-picture.jpg" alt="License Picture" class="w-full h-full rounded hidden">
+            </div>
+        </section>
+
+        <!-- About -->
         <section class="mt-6">
-            <h2 class="text-lg font-bold text-gray-800">About Agent</h2>
+            <h2 class="text-lg font-bold text-gray-800">About</h2>
             <p class="text-gray-600 mt-2">John Doe is a licensed real estate agent with over 10 years of experience in the industry. He specializes in residential and commercial properties, providing exceptional service to clients.</p>
         </section>
 
-        <!-- Manage My Listings -->
+        <!-- Professional Details -->
         <section class="mt-6">
-            <h2 class="text-lg font-bold text-gray-800">Manage My Listings</h2>
-            <p class="text-gray-600 mt-2">You can manage your property listings, update details, and track performance from your dashboard.</p>
-            <a href="manage-listings.html" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 mt-4 inline-block">Manage My Listings</a>
+            <h2 class="text-lg font-bold text-gray-800">Professional Details</h2>
+            <div class="grid grid-cols-2 gap-4 mt-4">
+                <div class="bg-gray-100 p-4 rounded shadow-md">
+                    <h3 class="font-bold text-gray-800">Years of Experience</h3>
+                    <p class="text-gray-600">10+</p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded shadow-md">
+                    <h3 class="font-bold text-gray-800">Specialization</h3>
+                    <p class="text-gray-600">Residential and Commercial Properties</p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded shadow-md">
+                    <h3 class="font-bold text-gray-800">Languages Spoken</h3>
+                    <p class="text-gray-600">English, Spanish</p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded shadow-md">
+                    <h3 class="font-bold text-gray-800">Certifications</h3>
+                    <p class="text-gray-600">Certified Residential Specialist (CRS), Accredited Buyer's Representative (ABR)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ratings and Comments -->
+        <section class="mt-6">
+            <h2 class="text-lg font-bold text-gray-800">Ratings & Reviews</h2>
+            <div class="mt-4">
+                <div class="bg-gray-100 p-4 rounded shadow-md mb-4">
+                    <p class="text-gray-800 font-bold">Jane Smith</p>
+                    <p class="text-yellow-500">⭐⭐⭐⭐⭐</p>
+                    <p class="text-gray-600 mt-2">John was incredibly helpful and professional. Highly recommend!</p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded shadow-md mb-4">
+                    <p class="text-gray-800 font-bold">Michael Brown</p>
+                    <p class="text-yellow-500">⭐⭐⭐⭐</p>
+                    <p class="text-gray-600 mt-2">Great experience, but there were minor delays in communication.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-6">
+            <div class="flex justify-between items-center">
+                <a href="add_listing.html" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">Add Listing</a>
+            </div>
+            <div class="mt-4 overflow-x-auto">
+                <div class="flex space-x-4">
+                    <!-- Listing Card 1 -->
+                    <div class="bg-white shadow-md rounded-lg w-64 flex-shrink-0">
+                        <div class="w-full h-40 bg-gray-300 rounded-t-lg flex items-center justify-center">
+                            <img src="listing1.jpg" alt="Listing 1" class="w-full h-full object-cover rounded-t-lg hidden">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-gray-800">Beautiful Family Home</h3>
+                            <p class="text-gray-600 text-sm mt-2">3 Beds • 2 Baths • 1,800 sqft</p>
+                            <p class="text-blue-700 font-bold mt-2">₦350,000</p>
+                            <button class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 mt-2">Edit</button>
+                        </div>
+                    </div>
+                    <!-- Listing Card 2 -->
+                    <div class="bg-white shadow-md rounded-lg w-64 flex-shrink-0">
+                        <div class="w-full h-40 bg-gray-300 rounded-t-lg flex items-center justify-center">
+                            <img src="listing2.jpg" alt="Listing 2" class="w-full h-full object-cover rounded-t-lg hidden">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-gray-800">Modern Apartment</h3>
+                            <p class="text-gray-600 text-sm mt-2">2 Beds • 1 Bath • 1,200 sqft</p>
+                            <p class="text-blue-700 font-bold mt-2">₦250,000</p>
+                            <button class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 mt-2">Edit</button>
+                        </div>
+                    </div>
+                    <!-- Listing Card 3 -->
+                    <div class="bg-white shadow-md rounded-lg w-64 flex-shrink-0">
+                        <div class="w-full h-40 bg-gray-300 rounded-t-lg flex items-center justify-center">
+                            <img src="listing3.jpg" alt="Listing 3" class="w-full h-full object-cover rounded-t-lg hidden">
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-gray-800">Luxury Villa</h3>
+                            <p class="text-gray-600 text-sm mt-2">5 Beds • 4 Baths • 4,500 sqft</p>
+                            <p class="text-blue-700 font-bold mt-2">₦1,200,000</p>
+                            <button class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800 mt-2">Edit</button>
+                        </div>
+                    </div>
+                    <!-- Add more cards as needed -->
+                </div>
+            </div>
         </section>
     </main>
 
