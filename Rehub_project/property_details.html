@@ -15,7 +15,7 @@
     <nav>
       <ul class="flex space-x-4">
         <li><a href="index.html" class="text-gray-700 hover:text-blue-700">Home</a></li>
-        <li><a href="#" class="text-gray-700 hover:text-blue-700">Contact Agent</a></li>
+        <li><a href="#contact" class="text-gray-700 hover:text-blue-700">Contact Agent</a></li>
       </ul>
     </nav>
   </header>
@@ -23,71 +23,141 @@
   <!-- Main Content -->
   <main class="max-w-4xl mx-auto mt-10 p-4 mb-10">
     
-    <!-- Property Details Section -->
-    <section id="property-details" class="bg-white p-6 rounded shadow-md">
-      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Property Details</h2>
-      
-      <!-- Property Image -->
-      <div class="mb-6">
-        <div class="w-full h-64 bg-gray-300 rounded flex items-center justify-center">
-          <span class="text-gray-500">Property Image Placeholder</span>
-        </div>
-      </div>
+   <!-- PROPERTY DETAILS -->
+<section id="property-details" class="bg-white p-6 rounded shadow-md">
+  <h2 class="text-2xl font-semibold text-gray-800 mb-4">Property Details</h2>
 
-      <!-- Property Information -->
-      <div class="space-y-4">
-        <h3 id="property-title" class="text-xl font-bold text-blue-700">Luxury Apartment</h3>
-        <p id="property-description" class="text-gray-600">A beautiful luxury apartment with modern amenities.</p>
-        
-        <div class="flex justify-between items-center">
-          <span id="property-price" class="text-lg font-semibold text-gray-800">Price: ₦750,000</span>
-          <span id="property-location" class="text-gray-500">Location: Garki, Abuja</span>
-        </div>
+  <!-- Property Images -->
+  <div class="mb-6">
+    <div class="w-full h-64 bg-gray-300 rounded flex items-center justify-center">
+      <span class="text-gray-500">Property Image Placeholder</span>
+    </div>
+  </div>
 
-        <div class="mt-4">
-          <p id="property-negotiable" class="text-gray-600">Price Negotiable: Yes</p>
-        </div>
-      </div>
+  <!-- Property Title -->
+  <div class="space-y-4">
+    <h3 id="property-title" class="text-xl font-bold text-blue-700">Luxury Apartment</h3>
+  </div>
 
-      <!-- Payment Plan Section -->
-      <div class="mt-6">
-        <h3 class="text-lg font-bold text-gray-800">Payment Plan</h3>
-        <p id="property-payment-plan" class="text-gray-600">Flexible payment options available: 50% upfront and the rest in installments over 6 months.</p>
-      </div>
+  <!-- Rent, Lease, or Purchase -->
+<div class="mt-4">
+  <h3 class="text-lg font-bold text-gray-800">Property Type</h3>
+  <p id="property-type" class="text-gray-600">For Rent</p>
+</div>
 
-      <!-- Number of Prototypes Section -->
-      <div class="mt-6">
-        <h3 class="text-lg font-bold text-gray-800">Number of Prototypes</h3>
-        <p id="property-prototypes" class="text-gray-600">This property is one of 5 prototypes 3 available 2 sold.</p>
-      </div>
+  <!-- Property Location -->
+  <div class="flex justify-between items-center">
+    <span id="property-location" class="text-gray-500">Location: Garki, Abuja</span>
+  </div>
 
-      <!-- Marketer Terms and Conditions -->
-      <div class="mt-6">
-        <h3 class="text-lg font-bold text-gray-800">Marketer Terms and Conditions</h3>
-        <p id="property-conditions" class="text-gray-600">The property is sold as-is with no additional warranties. Buyers are advised to inspect the property thoroughly before purchase.</p>
-      </div>
+  <!-- Number of Prototypes -->
+  <div class="mt-4">
+    <h3 class="text-lg font-bold text-gray-800">Number of Prototypes</h3>
+    <p id="property-prototypes" class="text-gray-600">This property is one of 5 prototypes: 3 available, 2 sold.</p>
+  </div>
 
-      <!-- Google Map -->
-      <div class="mt-6">
-        <h3 class="text-lg font-bold text-gray-800">See Property on Google Map</h3>
-        <div id="map" class="w-full h-64 mt-2 rounded shadow"></div>
-      </div>
+  <!-- Property Description -->
+  <div class="mt-4">
+    <h3 class="text-lg font-bold text-gray-800">Description</h3>
+    <p id="property-description" class="text-gray-600">A beautiful luxury apartment with modern amenities.</p>
+  </div>
 
-      <!-- Contact Buttons -->
-      <div class="mt-6">
-        <label class="flex items-center space-x-2">
-          <input type="checkbox" id="terms-checkbox" class="form-checkbox">
-          <span class="text-gray-600">
-            I agree to the <a href="terms-and-conditions.html" class="text-blue-700 underline">terms and conditions</a>
-          </span>
-        </label>
-        <div class="flex flex-col sm:flex-row sm:space-x-4 mt-4 space-y-2 sm:space-y-0">
-          <button id="contact-email" class="bg-blue-700 text-white px-3 py-2 rounded hover:bg-blue-800 disabled:opacity-50 w-full sm:w-auto" disabled>Contact via Email</button>
-          <button id="contact-whatsapp" class="bg-green-600 text-white px-3 py-2 rounded hover:bg-green-700 disabled:opacity-50 w-full sm:w-auto" disabled>Contact via WhatsApp</button>
-          <button id="about-agent" class="bg-gray-700 text-white px-3 py-2 rounded hover:bg-gray-800 w-full sm:w-auto">See Agent Profile</button>
-        </div>
-      </div>
-    </section>
+  <!-- Property Price -->
+  <div class="mt-4">
+    <h3 class="text-lg font-bold text-gray-800">Price</h3>
+    <p id="property-price" class="text-lg font-semibold text-gray-800">₦750,000</p>
+  </div>
+
+  <!-- Price Negotiation -->
+  <div class="mt-4">
+    <h3 class="text-lg font-bold text-gray-800">Price Negotiation</h3>
+    <p id="property-negotiable" class="text-gray-600">
+      <strong>Price Type:</strong> <span class="font-semibold text-blue-700">Fixed Price</span>
+    </p>
+  </div>
+
+  <!-- Payment Plan -->
+  <div class="mt-4">
+    <h3 class="text-lg font-bold text-gray-800">Payment Plan</h3>
+    <p id="property-payment-plan" class="text-gray-600">Flexible payment options available: 50% upfront and the rest in installments over 6 months.</p>
+  </div>
+
+  <!-- Total Area -->
+  <div class="mt-4">
+    <h3 class="text-lg font-bold text-gray-800">Total Area</h3>
+    <p id="property-total-area" class="text-gray-600">250 sqm</p>
+  </div>
+
+  <!-- Number of Rooms -->
+  <div class="mt-4">
+    <h3 class="text-lg font-bold text-gray-800">Number of Rooms</h3>
+    <p id="property-rooms" class="text-gray-600">4</p>
+  </div>
+
+  <!-- Number of Bathrooms -->
+  <div class="mt-4">
+    <h3 class="text-lg font-bold text-gray-800">Number of Bathrooms</h3>
+    <p id="property-bathrooms" class="text-gray-600">3</p>
+  </div>
+
+  <!-- Outdoor Space -->
+  <div class="mt-4">
+    <h3 class="text-lg font-bold text-gray-800">Outdoor Space</h3>
+    <p id="property-outdoor-space" class="text-gray-600">Private Garden</p>
+  </div>
+
+  <!-- Security Features -->
+  <div class="mt-4">
+    <h3 class="text-lg font-bold text-gray-800">Security Features</h3>
+    <p id="property-security" class="text-gray-600">24/7 gated security with CCTV</p>
+  </div>
+
+  <!-- Power Supply -->
+  <div class="mt-4">
+    <h3 class="text-lg font-bold text-gray-800">Power Supply</h3>
+    <p id="property-power" class="text-gray-600">Backup generator and solar panels</p>
+  </div>
+
+  <!-- Water Supply -->
+  <div class="mt-4">
+    <h3 class="text-lg font-bold text-gray-800">Water Supply</h3>
+    <p id="property-water" class="text-gray-600">Constant water supply with borehole</p>
+  </div>
+
+  <!-- Road Access -->
+  <div class="mt-4">
+    <h3 class="text-lg font-bold text-gray-800">Road Access</h3>
+    <p id="property-road" class="text-gray-600">Paved access roads</p>
+  </div>
+
+  <!-- Neighborhood Perks -->
+  <div class="mt-4">
+    <h3 class="text-lg font-bold text-gray-800">Neighborhood Perks</h3>
+    <p id="property-neighborhood" class="text-gray-600">Close to schools, shopping malls, and recreational parks</p>
+  </div>
+
+  <!-- Google Map -->
+  <div class="mt-6">
+    <h3 class="text-lg font-bold text-gray-800">See Property on Google Map</h3>
+    <div id="map" class="w-full h-64 mt-2 rounded shadow"></div>
+  </div>
+
+  <!-- Marketer Terms and Conditions -->
+  <div class="mt-6">
+    <h3 class="text-lg font-bold text-gray-800">Marketer Terms and Conditions</h3>
+    <p id="property-conditions" class="text-gray-600">The property is sold as-is with no additional warranties. Buyers are advised to inspect the property thoroughly before purchase.</p>
+  </div>
+
+  <!-- Contact -->
+  <div class="mt-6">
+    <h3 id="contact" class="text-lg font-bold text-gray-800">Contact</h3>
+    <div class="flex flex-col sm:flex-row sm:space-x-4 mt-4 space-y-2 sm:space-y-0">
+      <button id="contact-email" class="bg-blue-700 text-white px-3 py-2 rounded hover:bg-blue-800 disabled:opacity-50 w-full sm:w-auto" disabled>Contact via Email</button>
+      <button id="contact-whatsapp" class="bg-green-600 text-white px-3 py-2 rounded hover:bg-green-700 disabled:opacity-50 w-full sm:w-auto" disabled>Contact via WhatsApp</button>
+      <button id="about-agent" class="bg-gray-700 text-white px-3 py-2 rounded hover:bg-gray-800 w-full sm:w-auto">See Agent Profile</button>
+    </div>
+  </div>
+</section>
   </main>
 
   <!-- Footer -->

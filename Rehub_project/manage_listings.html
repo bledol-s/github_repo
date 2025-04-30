@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Listings</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        // JavaScript to dynamically update the manage section
+        function manageListing(title, location, description, price) {
+            document.getElementById('manage-title').innerText = "Manage Listing";
+            document.getElementById('property-title').innerText = title;
+            document.getElementById('manage-location').innerText = `Location: ${location}`;
+            document.getElementById('manage-description').innerText = `Description: ${description}`;
+            document.getElementById('manage-price').value = price;
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow p-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-blue-700">ReHub</h1>
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a href="index.html" class="text-gray-700 hover:text-blue-700">Home</a></li>
+                <li><a href="profile.html" class="text-gray-700 hover:text-blue-700">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto mt-10 p-6 bg-white rounded shadow-md">
+        <!-- Main Title -->
+        <h2 id="manage-title" class="text-2xl font-bold text-gray-800 mb-6">My Listings</h2>
+
+        <!-- Horizontal Slider for Listings -->
+        <div class="overflow-x-auto mb-6">
+            <div class="flex space-x-4">
+                <!-- Listing Card 1 -->
+                <div class="bg-white shadow-md rounded-lg w-64 flex-shrink-0">
+                    <div class="w-full h-40 bg-gray-300 rounded-t-lg flex items-center justify-center">
+                        <img src="listing1.jpg" alt="Listing 1" class="w-full h-full object-cover rounded-t-lg hidden">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">Beautiful Family Home</h3>
+                        <p class="text-gray-600 text-sm mt-2">Location: Lagos, Nigeria</p>
+                        <p class="text-gray-600 text-sm mt-2">3 Beds • 2 Baths • 1,800 sqft</p>
+                        <p class="text-blue-700 font-bold mt-2">₦350,000</p>
+                        <button onclick="manageListing('Beautiful Family Home', 'Lagos, Nigeria', '3 Beds • 2 Baths • 1,800 sqft', '350000')" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 mt-2">Manage</button>
+                    </div>
+                </div>
+                <!-- Listing Card 2 -->
+                <div class="bg-white shadow-md rounded-lg w-64 flex-shrink-0">
+                    <div class="w-full h-40 bg-gray-300 rounded-t-lg flex items-center justify-center">
+                        <img src="listing2.jpg" alt="Listing 2" class="w-full h-full object-cover rounded-t-lg hidden">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">Modern Apartment</h3>
+                        <p class="text-gray-600 text-sm mt-2">Location: Abuja, Nigeria</p>
+                        <p class="text-gray-600 text-sm mt-2">2 Beds • 1 Bath • 1,200 sqft</p>
+                        <p class="text-blue-700 font-bold mt-2">₦250,000</p>
+                        <button onclick="manageListing('Modern Apartment', 'Abuja, Nigeria', '2 Beds • 1 Bath • 1,200 sqft', '250000')" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 mt-2">Manage</button>
+                    </div>
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </div>
+
+        <!-- Manage Selected Listing -->
+        <div class="bg-gray-100 p-6 rounded shadow-md">
+            <h2 id="manage-title" class="text-xl font-bold text-gray-800 mb-2">Manage</h2>
+            <h3 id="property-title" class="text-lg font-bold text-gray-700 mb-4"></h3>
+            <p id="manage-location" class="text-gray-600 mb-4">Location: </p>
+            <p id="manage-description" class="text-gray-600 mb-4">Description: </p>
+
+            <!-- Update Price -->
+            <div class="mb-4">
+                <label for="manage-price" class="block text-gray-700 font-bold mb-2">Update Price (₦)</label>
+                <input type="number" id="manage-price" name="price" class="w-full border rounded p-2" placeholder="Enter new price">
+            </div>
+
+            <!-- Boost Listing -->
+            <div class="mb-4">
+                <label for="boost" class="block text-gray-700 font-bold mb-2">Boost Listing</label>
+                <p class="text-gray-600 mb-2">Boost your listing for ₦5,000 to get higher visibility and attract buyers faster.</p>
+                <button class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Boost Now</button>
+            </div>
+
+            <!-- Delete Listing -->
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold mb-2">Delete Listing</label>
+                <button class="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800">Delete Listing</button>
+            </div>
+
+            <!-- Save Changes -->
+            <div class="flex justify-between items-center">
+                <button class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">Save Changes</button>
+                <a href="profile.html" class="text-gray-700 hover:text-blue-700">Cancel</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-10">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 ReHub. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

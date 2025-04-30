@@ -22,7 +22,7 @@
   </header>
 
   <!-- Main Content -->
-  <main class="max-w-4xl mx-auto mt-6 p-4 mb-10">
+<main class="max-w-4xl mx-auto mt-6 p-4 mb-10">
   <h1 class="text-3xl font-bold text-center text-blue-800 mb-8">Add a New Listing</h1>
   <p class="text-center text-gray-700 mb-8">Select your subscription ticket to reveal the appropriate form fields.</p>
 
@@ -33,9 +33,7 @@
       <select id="ticket-select" class="w-full p-2 border rounded" required>
         <option value="" disabled selected>Select your subscription ticket</option>
         <option value="general">General Listing</option>
-        <option value="hot">Hot Deals</option>
-        <option value="special">Special Deals</option>
-        <option value="auction">Auction Deals</option>
+        <option value="hot">Hot or Special Deals</option>
       </select>
     </div>
     <p class="text-sm text-gray-500">The ticket will determine the type of listing you can create.</p>
@@ -54,6 +52,10 @@
         <input type="text" name="property_name" class="w-full p-2 border rounded" required />
       </div>
       <div>
+        <label class="block font-medium text-gray-700">Description</label>
+        <textarea name="description" class="w-full p-2 border rounded" rows="4" required></textarea>
+      </div>
+      <div>
         <div>
           <label class="block font-medium text-gray-700">Price (₦)</label>
           <input type="number" name="price" class="w-full p-2 border rounded" required />
@@ -61,10 +63,7 @@
         <label class="block font-medium text-gray-700">Location</label>
         <input type="text" name="location" class="w-full p-2 border rounded" required />
       </div>
-      <div>
-        <label class="block font-medium text-gray-700">Description</label>
-        <textarea name="description" class="w-full p-2 border rounded" rows="4" required></textarea>
-      </div>
+      
       <div>
         <label class="block font-medium text-gray-700">Email</label>
         <input type="email" name="email" class="w-full p-2 border rounded" placeholder="Enter your email" required />
@@ -84,79 +83,178 @@
     </form>
   </section>
 
-  <!-- Advanced Listing Form (Hot, Special, Auction) -->
+  <!-- Hot and Special Deals Form -->
   <section id="advanced-listing-form" class="mt-6 hidden">
-    <h2 class="text-2xl font-bold text-gray-800 mb-4">Advanced Listing</h2>
-    <form class="bg-white p-6 rounded shadow-md space-y-4">
-      <!-- Ticket Number -->
-      <div>
-        <label class="block font-medium text-gray-700">Ticket Number</label>
-        <input type="text" name="ticket_number" class="w-full p-2 border rounded" placeholder="Enter your ticket number" required />
-      </div>
-      <div>
-        <label class="block font-medium text-gray-700">Property Title</label>
-        <input type="text" name="property_name" class="w-full p-2 border rounded" required />
-      </div>
-      <div>
-        <label class="block font-medium text-gray-700">Price (₦)</label>
-        <input type="number" name="price" class="w-full p-2 border rounded" required />
-      </div>
-      <div>
-        <label class="block font-medium text-gray-700">Location</label>
-        <input type="text" name="location" class="w-full p-2 border rounded" required />
-      </div>
-      <div>
-        <label class="block font-medium text-gray-700">Description</label>
-        <textarea name="description" class="w-full p-2 border rounded" rows="4" required></textarea>
-      </div>
-      <div>
-        <label class="block font-medium text-gray-700">Is the Price Negotiable?</label>
-        <select name="negotiable" class="w-full p-2 border rounded" required>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-      </div>
-      <div>
-        <label class="block font-medium text-gray-700">Payment Plan</label>
-        <select name="payment_plan" class="w-full p-2 border rounded" required>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-      </div>
-      <div>
-        <label class="block font-medium text-gray-700">Number of prototypes</label>
-        <textarea name="marketer_terms" class="w-full p-2 border rounded" rows="2" required></textarea>
-      </div>
-      <div>
-        <label class="block font-medium text-gray-700">Marketer Terms and Conditions</label>
-        <textarea name="marketer_terms" class="w-full p-2 border rounded" rows="4" required></textarea>
-      </div>
-      <div>
-        <label class="block font-medium text-gray-700">Exact Address for Google Map</label>
-        <input type="text" name="exact_location" class="w-full p-2 border rounded" required />
-      </div>
-      <div>
-        <label class="block font-medium text-gray-700">Email</label>
-        <input type="email" name="email" class="w-full p-2 border rounded" placeholder="Enter your email" required />
-      </div>
-      <div>
-        <label class="block font-medium text-gray-700">WhatsApp Number</label>
-        <input type="tel" name="whatsapp" class="w-full p-2 border rounded" placeholder="Enter your WhatsApp number" required />
-      </div>
-      <div>
-        <label class="block font-medium text-gray-700">Upload Images</label>
-        <input type="file" name="images" class="w-full" multiple required />
-      </div>
-      <div>
-        <label class="block font-medium text-gray-700">
-          <input type="checkbox" name="terms" required /> I agree to the terms and conditions
-        </label>
-      </div>
-      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
-        Submit Advanced Listing
-      </button>
-    </form>
-  </section>
+  <h2 class="text-2xl font-bold text-gray-800 mb-4">Hot or Special Deals</h2>
+  <form class="bg-white p-6 rounded shadow-md space-y-4">
+    <!-- Ticket Number -->
+    <div>
+      <label class="block font-medium text-gray-700">Ticket Number</label>
+      <input type="text" name="ticket_number" class="w-full p-2 border rounded" placeholder="Enter your ticket number" maxlength="20" required />
+    </div>
+
+    <!-- Property Title -->
+    <div>
+      <label class="block font-medium text-gray-700">Property Title</label>
+      <input type="text" name="property_name" class="w-full p-2 border rounded" maxlength="50" required />
+    </div>
+
+    <!-- Rent, Lease, or Purchase -->
+<div class="mt-4">
+  <label class="block font-medium text-gray-700">Is the Property for Rent, Lease, or Purchase?</label>
+  <select id="property-type" name="property_type" class="w-full p-2 border rounded" required>
+    <option value="" disabled selected>Select an option</option>
+    <option value="rent">Rent</option>
+    <option value="lease">Lease</option>
+    <option value="purchase">Purchase</option>
+  </select>
+</div>
+
+    <!-- Location -->
+    <div>
+      <label class="block font-medium text-gray-700">Location</label>
+      <input type="text" name="location" class="w-full p-2 border rounded" maxlength="50" required />
+    </div>
+
+    <!-- Number of Prototypes -->
+    <div>
+      <label class="block font-medium text-gray-700">Number of Prototypes (Developers Only)</label>
+      <input type="number" name="prototypes" class="w-full p-2 border rounded" placeholder="Enter the number of prototypes" />
+    </div>
+
+    <!-- Description -->
+    <div>
+      <label class="block font-medium text-gray-700">Description (Max 50 Words)</label>
+      <textarea name="description" class="w-full p-2 border rounded" rows="2" maxlength="250" required></textarea>
+    </div>
+
+    <!-- Price -->
+    <div>
+      <label class="block font-medium text-gray-700">Price (₦)</label>
+      <input type="number" name="price" class="w-full p-2 border rounded" required />
+    </div>
+
+    <!-- Is the Price Negotiable -->
+    <div>
+      <label class="block font-medium text-gray-700">Is the Price Negotiable?</label>
+      <select name="negotiable" class="w-full p-2 border rounded" required>
+        <option value="fixed">Fixed Price</option>
+        <option value="negotiable">Negotiable</option>
+      </select>
+    </div>
+
+    <!-- Payment Plan -->
+    <div>
+      <label class="block font-medium text-gray-700">Payment Plan</label>
+      <select name="payment_plan" class="w-full p-2 border rounded" required>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </div>
+
+    <!-- Total Area -->
+    <div>
+      <label class="block font-medium text-gray-700">Total Area (sqm)</label>
+      <input type="number" name="total_area" class="w-full p-2 border rounded" placeholder="Enter total area in sqm" required />
+    </div>
+
+    <!-- Number of Rooms -->
+    <div>
+      <label class="block font-medium text-gray-700">Number of Rooms</label>
+      <input type="number" name="rooms" class="w-full p-2 border rounded" placeholder="Enter the number of rooms" required />
+    </div>
+
+    <!-- Number of Bathrooms -->
+    <div>
+      <label class="block font-medium text-gray-700">Number of Bathrooms</label>
+      <input type="number" name="bathrooms" class="w-full p-2 border rounded" placeholder="Enter the number of bathrooms" required />
+    </div>
+
+    <!-- Outdoor Space -->
+    <div>
+      <label class="block font-medium text-gray-700">Outdoor Space</label>
+      <textarea name="outdoor_space" class="w-full p-2 border rounded" rows="2" maxlength="50" placeholder="Describe the outdoor space" required></textarea>
+    </div>
+
+    <!-- Security -->
+    <div>
+      <label class="block font-medium text-gray-700">Security Features</label>
+      <textarea name="security_features" class="w-full p-2 border rounded" rows="2" maxlength="50" required></textarea>
+    </div>
+
+    <!-- Power Supply -->
+    <div>
+      <label class="block font-medium text-gray-700">Power Supply</label>
+      <textarea name="power_supply" class="w-full p-2 border rounded" rows="2" maxlength="50" required></textarea>
+    </div>
+
+    <!-- Water Supply -->
+    <div>
+      <label class="block font-medium text-gray-700">Water Supply</label>
+      <textarea name="water_supply" class="w-full p-2 border rounded" rows="2" maxlength="50" required></textarea>
+    </div>
+
+    <!-- Road Access -->
+    <div>
+      <label class="block font-medium text-gray-700">Road Access</label>
+      <textarea name="road_access" class="w-full p-2 border rounded" rows="2" maxlength="50" required></textarea>
+    </div>
+
+    <!-- Neighborhood Perks -->
+    <div>
+      <label class="block font-medium text-gray-700">Neighborhood Perks</label>
+      <textarea name="neighborhood_perks" class="w-full p-2 border rounded" rows="3" maxlength="50" required></textarea>
+    </div>
+
+    <!-- Exact Address for Google Map -->
+    <div>
+      <label class="block font-medium text-gray-700">Exact Address for Google Map</label>
+      <input type="text" name="exact_location" class="w-full p-2 border rounded" maxlength="50" required />
+    </div>
+
+    <!-- Marketer Terms and Conditions -->
+    <div>
+      <label class="block font-medium text-gray-700">Marketer Terms and Conditions</label>
+      <textarea name="marketer_terms" class="w-full p-2 border rounded" rows="4" maxlength="250" required></textarea>
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label class="block font-medium text-gray-700">Email</label>
+      <input type="email" name="email" class="w-full p-2 border rounded" placeholder="Enter your email" maxlength="50" required />
+    </div>
+
+    <!-- WhatsApp Number -->
+    <div>
+      <label class="block font-medium text-gray-700">WhatsApp Number</label>
+      <input type="tel" name="whatsapp" class="w-full p-2 border rounded" placeholder="Enter your WhatsApp number" maxlength="20" required />
+    </div>
+
+    <!-- Upload Images -->
+    <div>
+      <label class="block font-medium text-gray-700">Upload Images</label>
+      <input type="file" name="images" class="w-full" multiple required />
+    </div>
+
+    <!-- Upload Videos -->
+    <div>
+      <label class="block font-medium text-gray-700">Upload Videos</label>
+      <input type="file" name="videos" class="w-full" accept="video/*" multiple />
+    </div>
+
+    <!-- Agree to Terms -->
+    <div>
+      <label class="block font-medium text-gray-700">
+        <input type="checkbox" name="terms" required /> I agree to the terms and conditions
+      </label>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+      Submit Advanced Listing
+    </button>
+  </form>
+</section>
 </main>
 
   <!-- Footer -->
