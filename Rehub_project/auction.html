@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auction</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    // Countdown Timer Script
+    function startCountdown(endTime) {
+      const timerElement = document.getElementById('auction-timer');
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = endTime - now;
+
+        if (distance <= 0) {
+          clearInterval(interval);
+          timerElement.textContent = "Auction Ended";
+          return;
+        }
+
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        timerElement.textContent = `${hours}h ${minutes}m ${seconds}s`;
+      }, 1000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const auctionEndTime = new Date().getTime() + (24 * 60 * 60 * 1000); // 24 hours from now
+      startCountdown(auctionEndTime);
+    });
+  </script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Header -->
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-blue-700">ReHub</h1>
+    <nav>
+      <ul class="flex space-x-4">
+        <li><a href="index.html" class="text-gray-700 hover:text-blue-700">Home</a></li>
+        <li><a href="dashboard.html" class="text-gray-700 hover:text-blue-700">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto mt-10 p-4">
+    
+    <!-- Hero Section: Bidding -->
+    <section id="bidding-section" class="bg-white p-6 rounded shadow-md mb-10">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Auction: Luxury Duplex</h2>
+      <p class="text-gray-600 mb-4">Location: Asokoro, Abuja</p>
+      <p class="text-gray-600 mb-4">Starting Price: <span class="text-blue-700 font-bold">₦50,000,000</span></p>
+      <p class="text-gray-600 mb-4">Current Highest Bid: <span class="text-green-700 font-bold">₦55,000,000</span></p>
+      <p class="text-gray-600 mb-4">Auction Ends In: <span id="auction-timer" class="text-red-600 font-bold">Loading...</span></p>
+      <form action="/place_bid" method="POST" class="space-y-4">
+        <div>
+          <label class="block font-medium text-gray-700">Your Bid (₦)</label>
+          <input type="number" name="bid_amount" class="w-full p-2 border rounded" placeholder="Enter your bid amount" required />
+        </div>
+        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 w-full">
+          Place Bid
+        </button>
+      </form>
+    </section>
+
+    <!-- Property Details -->
+    <section id="property-details" class="bg-white p-6 rounded shadow-md">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Property Details</h2>
+
+      <!-- Property Images -->
+      <div class="mb-6">
+        <div class="w-full h-64 bg-gray-300 rounded flex items-center justify-center">
+          <span class="text-gray-500">Property Image Placeholder</span>
+        </div>
+      </div>
+
+      <!-- Property Title -->
+      <div class="space-y-4">
+        <h3 id="property-title" class="text-xl font-bold text-blue-700">Luxury Duplex</h3>
+      </div>
+
+      <!-- Property Location -->
+      <div class="flex justify-between items-center">
+        <span id="property-location" class="text-gray-500">Location: Asokoro, Abuja</span>
+      </div>
+
+      <!-- Property Description -->
+      <div class="mt-4">
+        <h3 class="text-lg font-bold text-gray-800">Description</h3>
+        <p id="property-description" class="text-gray-600">A spacious duplex with modern finishes and a large compound.</p>
+      </div>
+
+      <!-- Property Price -->
+      <div class="mt-4">
+        <h3 class="text-lg font-bold text-gray-800">Starting Price</h3>
+        <p id="property-price" class="text-lg font-semibold text-gray-800">₦50,000,000</p>
+      </div>
+
+      <!-- Property Features -->
+      <div class="mt-4">
+        <h3 class="text-lg font-bold text-gray-800">Features</h3>
+        <ul class="list-disc list-inside text-gray-600">
+          <li>Total Area: 400 sqm</li>
+          <li>Rooms: 5</li>
+          <li>Bathrooms: 4</li>
+          <li>Outdoor Space: Large Compound</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 ReHub. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
