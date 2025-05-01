@@ -43,10 +43,12 @@
                     </div>
                     <div class="p-4">
                         <h3 class="font-bold text-gray-800">Beautiful Family Home</h3>
-                        <p class="text-gray-600 text-sm mt-2">Location: Lagos, Nigeria</p>
-                        <p class="text-gray-600 text-sm mt-2">3 Beds • 2 Baths • 1,800 sqft</p>
-                        <p class="text-blue-700 font-bold mt-2">₦350,000</p>
-                        <button onclick="manageListing('Beautiful Family Home', 'Lagos, Nigeria', '3 Beds • 2 Baths • 1,800 sqft', '350000')" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 mt-2">Manage</button>
+                        <p class="text-gray-600 text-sm mt-2"><strong>Location:</strong> Wuye, Abuja</p>
+                        <p class="text-gray-600 text-sm mt-2"><strong>Description:</strong> A spacious family home with modern amenities.</p>
+                        <p class="text-gray-600 text-sm mt-2"><strong>Type:</strong> Rent</p>
+                        <p class="text-gray-600 text-sm mt-2"><strong>Total Area:</strong> 1,800 sqm</p>
+                        <p class="text-blue-700 font-bold mt-2">₦350,000,000</p>
+                        <button onclick="manageListing('Beautiful Family Home', 'Lagos, Nigeria', 'A spacious family home with modern amenities.', '350000')" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 mt-2">Manage</button>
                     </div>
                 </div>
                 <!-- Listing Card 2 -->
@@ -56,10 +58,12 @@
                     </div>
                     <div class="p-4">
                         <h3 class="font-bold text-gray-800">Modern Apartment</h3>
-                        <p class="text-gray-600 text-sm mt-2">Location: Abuja, Nigeria</p>
-                        <p class="text-gray-600 text-sm mt-2">2 Beds • 1 Bath • 1,200 sqft</p>
-                        <p class="text-blue-700 font-bold mt-2">₦250,000</p>
-                        <button onclick="manageListing('Modern Apartment', 'Abuja, Nigeria', '2 Beds • 1 Bath • 1,200 sqft', '250000')" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 mt-2">Manage</button>
+                        <p class="text-gray-600 text-sm mt-2"><strong>Location:</strong> Lugbe, Abuja</p>
+                        <p class="text-gray-600 text-sm mt-2"><strong>Description:</strong> A stylish apartment in the heart of the city.</p>
+                        <p class="text-gray-600 text-sm mt-2"><strong>Type:</strong> Lease</p>
+                        <p class="text-gray-600 text-sm mt-2"><strong>Total Area:</strong> 1,200 sqm</p>
+                        <p class="text-blue-700 font-bold mt-2">₦250,000,000</p>
+                        <button onclick="manageListing('Modern Apartment', 'Abuja, Nigeria', 'A stylish apartment in the heart of the city.', '250000')" class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 mt-2">Manage</button>
                     </div>
                 </div>
                 <!-- Add more cards as needed -->
@@ -68,15 +72,55 @@
 
         <!-- Manage Selected Listing -->
         <div class="bg-gray-100 p-6 rounded shadow-md">
-            <h2 id="manage-title" class="text-xl font-bold text-gray-800 mb-2">Manage</h2>
+            <h2 id="manage-title" class="text-xl font-bold text-gray-800 mb-2">Manage Listing</h2>
             <h3 id="property-title" class="text-lg font-bold text-gray-700 mb-4"></h3>
             <p id="manage-location" class="text-gray-600 mb-4">Location: </p>
             <p id="manage-description" class="text-gray-600 mb-4">Description: </p>
+
+            <!-- Update Status -->
+            <div class="mb-4">
+                <label for="manage-status" class="block text-gray-700 font-bold mb-2">Update Status</label>
+                <select id="manage-status" name="status" class="w-full border rounded p-2">
+                    <option value="open">Open</option>
+                    <option value="sold">Sold</option>
+                </select>
+            </div>
+
+            <!-- Update Type -->
+            <div class="mb-4">
+                <label for="manage-type" class="block text-gray-700 font-bold mb-2">Update Type</label>
+                <select id="manage-type" name="type" class="w-full border rounded p-2">
+                    <option value="rent">Rent</option>
+                    <option value="lease">Lease</option>
+                    <option value="purchase">Purchase</option>
+                </select>
+            </div>
+
+            <!-- Update Number of Prototypes -->
+            <div class="mb-4">
+                <label for="manage-prototypes" class="block text-gray-700 font-bold mb-2">Number of Prototypes</label>
+                <input type="number" id="manage-prototypes" name="prototypes" class="w-full border rounded p-2" placeholder="Enter number of prototypes">
+            </div>
 
             <!-- Update Price -->
             <div class="mb-4">
                 <label for="manage-price" class="block text-gray-700 font-bold mb-2">Update Price (₦)</label>
                 <input type="number" id="manage-price" name="price" class="w-full border rounded p-2" placeholder="Enter new price">
+            </div>
+
+            <!-- Update Payment Plan -->
+            <div class="mb-4">
+                <label for="manage-payment-plan" class="block text-gray-700 font-bold mb-2">Payment Plan</label>
+                <select id="manage-payment-plan" name="payment_plan" class="w-full border rounded p-2">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <!-- Update Marketer Terms and Conditions -->
+            <div class="mb-4">
+                <label for="manage-terms" class="block text-gray-700 font-bold mb-2">Marketer Terms and Conditions</label>
+                <textarea id="manage-terms" name="terms" class="w-full border rounded p-2" rows="4" placeholder="Enter marketer terms and conditions"></textarea>
             </div>
 
             <!-- Boost Listing -->
@@ -86,17 +130,18 @@
                 <button class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Boost Now</button>
             </div>
 
-            <!-- Delete Listing -->
-            <div class="mb-4">
-                <label class="block text-gray-700 font-bold mb-2">Delete Listing</label>
-                <button class="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800">Delete Listing</button>
-            </div>
-
             <!-- Save Changes -->
             <div class="flex justify-between items-center">
                 <button class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800">Save Changes</button>
                 <a href="profile.html" class="text-gray-700 hover:text-blue-700">Cancel</a>
             </div>
+        </div>
+
+        <!-- Delete Listing Section -->
+        <div class="bg-red-100 p-6 rounded shadow-md mt-6">
+            <h2 class="text-xl font-bold text-red-700 mb-4">Delete Listing</h2>
+            <p class="text-gray-600 mb-4">Warning: Deleting this listing is permanent and cannot be undone.</p>
+            <button class="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-800">Delete Listing</button>
         </div>
     </main>
 

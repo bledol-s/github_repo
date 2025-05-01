@@ -44,7 +44,7 @@
         <a href="#general" class="block px-4 py-2 hover:bg-gray-200">General Listings</a>
         <a href="#hot" class="block px-4 py-2 hover:bg-gray-200">Hot Deals</a>
         <a href="#special" class="block px-4 py-2 hover:bg-gray-200">Special Deals</a>
-        <a href="#auction" class="block px-4 py-2 hover:bg-gray-200">Auction Deals</a>
+        <a href="auction.html" class="block px-4 py-2 hover:bg-gray-200">Auctions</a>
       </div>
     </div>
     <a href="dashboard.html" class="block lg:inline-block hover:underline">Dashboard</a>
@@ -70,14 +70,84 @@
 </section>
 
   <!-- Search Filter -->
-   <section class="bg-white py-6"> 
-    <div class="container mx-auto mt-6">
-        <form action="#" method="GET" class="flex justify-center">
-        <input type="text" name="search" placeholder="Search for properties..." class="w-full max-w-md p-3 rounded-l-lg border border-gray-300">
-        <button type="submit" class="bg-yellow-500 text-black px-4 py-3 rounded-r-lg font-bold">Filter</button>
-        </form>
+<section class="bg-white py-6">
+  <div class="container mx-auto text-center">
+    <!-- AI Search Field -->
+    <div class="flex justify-center items-center gap-4">
+      <input 
+        type="text" 
+        placeholder="Search with AI..." 
+        class="w-full max-w-md p-3 border rounded-lg" 
+        id="ai-search-input"
+      >
+      <button 
+        id="ai-search-button" 
+        class="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700">
+        Search
+      </button>
+      <button 
+        id="toggle-filters" 
+        class="bg-gray-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-gray-700">
+        Apply Filters
+      </button>
     </div>
-  </section>
+
+    <!-- Hidden Filter Options -->
+    <div id="filter-options" class="mt-6 hidden">
+      <form action="/search" method="GET" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Location Filter -->
+        <div>
+          <label for="location" class="block text-gray-700 font-bold mb-2">Location</label>
+          <select id="location" name="location" class="w-full p-3 border rounded">
+            <option value="">All Locations</option>
+            <option value="abuja">Abuja</option>
+            <option value="lagos">Lagos</option>
+            <option value="port-harcourt">Port Harcourt</option>
+          </select>
+        </div>
+
+        <!-- Type Filter -->
+        <div>
+          <label for="type" class="block text-gray-700 font-bold mb-2">Type</label>
+          <select id="type" name="type" class="w-full p-3 border rounded">
+            <option value="">All Types</option>
+            <option value="rent">Rent</option>
+            <option value="lease">Lease</option>
+            <option value="purchase">Purchase</option>
+          </select>
+        </div>
+
+        <!-- Price Range Filter -->
+        <div>
+          <label for="price" class="block text-gray-700 font-bold mb-2">Price Range (₦)</label>
+          <input 
+            type="number" 
+            id="price-min" 
+            name="price_min" 
+            placeholder="Min Price" 
+            class="w-full p-3 border rounded mb-2"
+          >
+          <input 
+            type="number" 
+            id="price-max" 
+            name="price_max" 
+            placeholder="Max Price" 
+            class="w-full p-3 border rounded"
+          >
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex items-end">
+          <button 
+            type="submit" 
+            class="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 w-full">
+            Apply Filters
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 
   <!-- DEAL SECTIONS WITH LISTING CARDS -->
   <main class="max-w-7xl mx-auto mt-10 p-4">
@@ -324,6 +394,36 @@
         </div>
     </section>
 
+    <!-- Sponsors Section -->
+<section id="sponsors" class="bg-gray-100 py-12">
+  <div class="container mx-auto text-center">
+    <h2 class="text-2xl font-bold mb-6">Our Sponsors</h2>
+    <p class="text-gray-600 mb-8">We are proudly supported by these esteemed organizations:</p>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center">
+      <!-- Taj Bank -->
+      <div>
+        <img src="images/tajbank.png" alt="Taj Bank" class="mx-auto h-16">
+        <p class="text-sm text-gray-600 mt-2">Taj Bank</p>
+      </div>
+      <!-- Zavati Group -->
+      <div>
+        <img src="images/zavatigroup.jpeg" alt="Zavati Group" class="mx-auto h-16">
+        <p class="text-sm text-gray-600 mt-2">Zavati Group</p>
+      </div>
+      <!-- CAC -->
+      <div>
+        <img src="images/cac.jpeg" alt="CAC" class="mx-auto h-16">
+        <p class="text-sm text-gray-600 mt-2">Corporate Affairs Commission (CAC)</p>
+      </div>
+      <!-- REDAN -->
+      <div>
+        <img src="images/redan.png" alt="REDAN" class="mx-auto h-16">
+        <p class="text-sm text-gray-600 mt-2">Real Estate Developers Association of Nigeria (REDAN)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
     <!-- Newsletter -->
     <section id="newsletter-section" class="bg-blue-600 text-white py-12">
   <div class="container mx-auto text-center">
@@ -384,6 +484,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Alpine.js for interactivity -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+      // Toggle filter options
+      document.getElementById('toggle-filters').addEventListener('click', function () {
+        const filterOptions = document.getElementById('filter-options');
+        filterOptions.classList.toggle('hidden');
+      });
+    
+      // Handle AI search (example functionality)
+      document.getElementById('ai-search-button').addEventListener('click', function () {
+        const aiSearchInput = document.getElementById('ai-search-input').value;
+        if (aiSearchInput.trim() === '') {
+          alert('Please enter a query for AI search.');
+        } else {
+          // Example: Redirect to AI search results page
+          window.location.href = `/ai-search?query=${encodeURIComponent(aiSearchInput)}`;
+        }
+      });
+    </script>
 
   
   </body>
