@@ -1,68 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head class="bg-blue-600 text-white py-6 text-center">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ReHub</title>
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
-    /* Loader styles */
-    #loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
+    body.loading #loader {
+      display: flex; /* Ensure the loader is visible */
     }
-
-    .spinner {
-      width: 50px;
-      height: 50px;
-      border: 5px solid #ccc;
-      border-top-color: #1a73e8;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* Example content style */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-    }
-
-    header {
-      background: #1a73e8;
-      color: white;
-      padding: 1.5rem;
-      text-align: center;
-    }
-
-    main {
-      padding: 2rem;
-    }
-
-    h1 {
-      margin-top: 0;
+  
+    body.loading main, 
+    body.loading nav, 
+    body.loading footer, 
+    body.loading section {
+      display: none; /* Hide the rest of the page content */
     }
   </style>
 </head>
-<body>
+
+<body class="font-sans m-0 p-0 bg-gray-100 loading">
 
   <!-- Loader -->
-  <div id="loader">
-    <div class="spinner"></div>
+  <div id="loader" class="fixed inset-0 bg-white flex items-center justify-center z-[9999]">
+    <div class="spinner w-12 h-12 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
   </div>
 
   <!-- Navbar -->
@@ -119,7 +81,7 @@
       Welcome to Rehub
     </h1>
     <p class="bg-black bg-opacity-50 inline-block px-4 py-2 rounded">
-      "Abuja’s Real Estate Hub – Find, Buy, Rent, or Invest in Minutes. From luxury villas to auction deals, every property journey starts here."
+      "Nigeria’s Real Estate Hub – Find, Buy, Rent, or Invest in Minutes. From luxury villas to auction deals, every property journey starts here."
     </p>
     <!-- Subscribe Button -->
     <div class="mt-8">
@@ -211,7 +173,7 @@
 </section>
 
   <!-- DEAL SECTIONS WITH LISTING CARDS -->
-  <main class="max-w-7xl mx-auto mt-10 p-4">
+  <main class="max-w-7xl mx-auto mt-10 p-8">
     <!-- GENERAL LISTINGS -->
     <section id="general" class="mb-12">
   <div class="text-center bg-green-100 py-4 rounded">
@@ -265,9 +227,9 @@
 <section id="hot" class="mb-12">
   <div class="text-center bg-red-100 py-4 rounded">
     <h3 class="text-3xl font-bold text-red-800">Hot Deals</h3>
-    <p class="text-lg text-red-600">🔥 "Agent Exclusive"</p>
-  </div>
-  <div class="flex space-x-4 overflow-x-auto pb-4 mt-6">
+      <p class="text-lg text-red-600">🔥 "Agent Exclusive"</p>
+      </div>
+    <div class="flex space-x-4 overflow-x-auto pb-4 mt-6">
     <!-- Card 1 -->
     <div class="min-w-[300px] bg-white shadow-lg rounded p-4 flex-shrink-0">
       <div class="bg-gray-300 h-40 mb-2 rounded">
@@ -447,7 +409,7 @@
   <section id="About" class="bg-gray-100 py-12">
     <div class="container mx-auto text-center">
     <h2 class="text-2xl font-bold mb-6">About Us</h2>
-    <p class="mb-4">"ReHub is Abuja’s premier digital hub for all things real estate—where buyers, renters, investors, agents, and developers connect seamlessly. Whether you’re searching for a dream home, leasing a luxury apartment, bidding on auction deals, or listing properties with flexible payment plans, ReHub brings every opportunity under one roof. Think of us as the bustling marketplace where Nigeria’s property journey begins."</p>
+    <p class="mb-4">"ReHub is Nigeria’s premier digital hub for all things real estate—where buyers, renters, investors, agents, and developers connect seamlessly. Whether you’re searching for a dream home, leasing a luxury apartment, bidding on auction deals, or listing properties with flexible payment plans, ReHub brings every opportunity under one roof. Think of us as the bustling marketplace where Nigeria’s property journey begins."</p>
     <p>"Where Properties Meet People—Effortlessly."</p>
     </div>
 </section>
@@ -552,7 +514,7 @@
         </form>
         </div>
     </section>
-  </main>
+</main>
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-white py-6">
@@ -563,36 +525,14 @@
             <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
         </div>
     </div>
-</footer>
+  </footer>
   
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Alpine.js for interactivity -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script>
-      // Toggle filter options
-      document.getElementById('toggle-filters').addEventListener('click', function () {
-        const filterOptions = document.getElementById('filter-options');
-        filterOptions.classList.toggle('hidden');
-      });
-    
-      // Handle AI search (example functionality)
-      document.getElementById('ai-search-button').addEventListener('click', function () {
-        const aiSearchInput = document.getElementById('ai-search-input').value;
-        if (aiSearchInput.trim() === '') {
-          alert('Please enter a query for AI search.');
-        } else {
-          // Example: Redirect to AI search results page
-          window.location.href = `/ai-search?query=${encodeURIComponent(aiSearchInput)}`;
-        }
-      });
-    </script>
-    <script>
-      window.addEventListener("load", function () {
-        const loader = document.getElementById("loader");
-        if (loader) loader.style.display = "none";
-      });
-    </script>
 
-  
+    <!-- Link to the external JavaScript file -->
+    <script src="index.js" defer></script>
+
   </body>
 </html>
