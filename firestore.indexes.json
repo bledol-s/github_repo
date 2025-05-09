@@ -1,0 +1,12 @@
+{
+    "indexes": [
+      {
+        "collectionGroup": "listings",
+        "fields": [
+          { "fieldPath": "price", "order": "ASCENDING" },
+          { "fieldPath": "location", "order": "ASCENDING" }
+        ]
+      }
+    ],
+    "fieldOverrides": []
+  }

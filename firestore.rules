@@ -1,0 +1,35 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Rules for the "listings" collection
+    match /listings/{listingId} {
+      // Allow anyone to read listings (view-only access)
+      allow read: if true;
+
+      // Allow only authenticated users to create or edit listings
+      allow create, update, delete: if request.auth != null && hasProfile();
+
+      // Helper function to check if the user has a profile
+      function hasProfile() {
+        return exists(/databases/$(database)/documents/profiles/$(request.auth.uid));
+      }
+    }
+
+    // Rules for the "profiles" collection
+    match /profiles/{userId} {
+      // Allow only the authenticated user to create or edit their own profile
+      allow read, create, update, delete: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Rules for the "subscriptions" collection
+    match /subscriptions/{subscriptionId} {
+      // Allow anyone to create a subscription (e.g., email subscriptions)
+      allow create: if true;
+
+      // Allow only authenticated users to read their own subscriptions
+      allow read: if request.auth != null && resource.data.userId == request.auth.uid;
+    }
+  }
+}

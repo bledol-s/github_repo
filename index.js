@@ -86,3 +86,45 @@ document.addEventListener('DOMContentLoaded', () => {
     updateFeaturedCard(specialSection); // Initialize on page load
   }
 });
+
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyC-jCnB_Uf6sjLRRF4aUXl4MYpUS8NN2pQ",
+  authDomain: "rehub-8ced7.firebaseapp.com",
+  projectId: "rehub-8ced7",
+  storageBucket: "rehub-8ced7.firebasestorage.app",
+  messagingSenderId: "981782275704",
+  appId: "1:981782275704:web:24c707cbe1d812b0052f8d"
+};
+
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const auth = firebase.auth();
+
+db.collection('listings')
+  .orderBy('price', 'asc')
+  .get()
+  .then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, '=>', doc.data());
+    });
+  })
+  .catch((error) => {
+    console.error('Error fetching listings:', error);
+  });
+
+  db.collection('listings').add({
+    title: '3 Bedroom Apartment',
+    price: 5000000,
+    location: 'Lagos',
+    description: 'Spacious apartment in Lagos.',
+    ownerId: 'user123',
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+  })
+  .then(() => {
+    console.log('Listing added successfully!');
+  })
+  .catch((error) => {
+    console.error('Error adding listing:', error);
+  });
